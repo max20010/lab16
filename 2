@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-	int n, x = 0,k=0;
+	int n,n1, x = 0, k = 0,num=0;
 	cin >> n;
 	int* m = new int[n];
 	for (int i = 0; i < n; i++) {
@@ -11,23 +11,24 @@ int main()
 	}
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			if (i != j && m[i]==m[j]) {
+			if (i != j && m[i] == m[j]) {
 				x++;
 			}
 		}
-		if (x == 2) {
+		if (x == 1) {
 			k++;
 		}
 		x = 0;
 	}
-	int* m1 = new int[n-k*2];
-	for (int i = 0,num=0; i < n; i++) {
+	n1 = n - k;
+	int* m1 = new int[n1];
+	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			if (i != j && m[i] == m[j]) {
 				x++;
 			}
 		}
-		if (x != 2) {
+		if (x != 1) {
 			m1[num] = m[i];
 			num++;
 		}
@@ -35,7 +36,7 @@ int main()
 	}
 	cout << endl;
 
-	for (int i = 0; i < n-k*2; i++) {
+	for (int i = 0; i < n1; i++) {
 		cout << m1[i] << endl;
 	}
 	delete[]m;
